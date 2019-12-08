@@ -19,6 +19,6 @@ spec:
             - containerPort: 5000
           env:
             - name: MONGODB_URL
-              value: mongodb://mongo-cluster-ip-service:27017/ecommerce-k8s
+              value: mongodb://mongo-cluster-ip-service:27017/ecommerce
             - name: JWT_SECRET
               value: ecommercedockerjwtsecret
