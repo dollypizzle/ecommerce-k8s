@@ -116,7 +116,7 @@ const CheckOut = (props: IntProps) => {
           </form>
         </MDBCol>
         <MDBCol md="6">
-          <h4 className="text-center mt-4">The Summary of your Order</h4>
+          <h4 className="text-center mt-4">The Summary of your Order!!!</h4>
           <MDBCardBody>
             <ProductTable className="product-table" responsive>
               <MDBTableHead
