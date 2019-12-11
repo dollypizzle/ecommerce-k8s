@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: dollypizzle/ecommerce-client
+          image: dollypizzle/eco-client
           ports:
             - containerPort: 3000
           env:
