@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: dolmart-tk-tls
+spec:
+  secretName: dolmart-tk
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: dolmart.tk
+  dnsNames:
+    - dolmart.tk
+    - dolmart.tk
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - dolmart.tk
+          - www.dolmart.tk
