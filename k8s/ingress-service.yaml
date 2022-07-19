@@ -5,18 +5,34 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-
+    cert-manager.io/cluster-issuer: 'letsencrypt-prod'
+    nginx.ingress.kubernetes.io/ssl-redirect: 'false'
 spec:
+  tls:
+    - hosts:
+        - dolmart.tk
+        - www.dolmart.tk
+      secretName: dolmart-tk
   rules:
-    - http:
+    - host: dolmart.tk
+      http:
         paths:
           - path: /?(.*)
-
             backend:
               serviceName: client-cluster-ip-service
               servicePort: 3000
           - path: /api/?(.*)
-
+            backend:
+              serviceName: server-cluster-ip-service
+              servicePort: 5000
+    - host: www.dolmart.tk
+      http:
+        paths:
+          - path: /?(.*)
+            backend:
+              serviceName: client-cluster-ip-service
+              servicePort: 3000
+          - path: /api/?(.*)
             backend:
               serviceName: server-cluster-ip-service
               servicePort: 5000
